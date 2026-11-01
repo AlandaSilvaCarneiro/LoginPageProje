@@ -1,0 +1,20 @@
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres-auth
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: login_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: MinhaSenhaLocal123
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_auth_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_auth_data:
